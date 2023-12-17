@@ -18,19 +18,17 @@ function encodeLine(str) {
     if (str[i] === letter) {
       count++;
     } else {
-      if (count != 1){
-        newStr += count
-      }
-
-      newStr += letter;
+      newStr = addLetter(count, newStr, letter);
       letter = str[i];
       count = 1;
     }
+  }
+  return addLetter(count, newStr, letter);
+}
 
-  }
-  if (count != 1){
+function addLetter(count, newStr, letter){
+  if (count != 1)
     newStr += count
-  }
 
   newStr += letter;
   return newStr;
