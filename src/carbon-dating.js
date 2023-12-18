@@ -17,13 +17,15 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-function dateSample(sampleActivity) {
-  if(typeof sampleActivity === 'string' && String(+sampleActivity) === sampleActivity){
+function dateSample(/*sampleActivity*/) {
+  // if(typeof sampleActivity === 'string' && String(+sampleActivity) === sampleActivity){
 
-    return +sampleActivity;
-  }else{
-    return false;
-  }
+  //   return +sampleActivity;
+  // }else{
+  //   return false;
+  // }
+  throw new NotImplementedError('Not implemented');
+
 }
 
 module.exports = {
