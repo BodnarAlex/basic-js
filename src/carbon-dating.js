@@ -17,15 +17,18 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-function dateSample(/*sampleActivity*/) {
-  // if(typeof sampleActivity === 'string' && String(+sampleActivity) === sampleActivity){
+function dateSample(sampleActivity) {
+  if (sampleActivity <= 0)
+    return false;
 
-  //   return +sampleActivity;
-  // }else{
-  //   return false;
-  // }
-  throw new NotImplementedError('Not implemented');
-
+  if (typeof sampleActivity === 'string' && String(+sampleActivity) === sampleActivity) {
+    const A = MODERN_ACTIVITY / sampleActivity;
+    const k = 0.693 / HALF_LIFE_PERIOD;
+    const t = Math.ceil(Math.log(A) / k);
+    return t > 0 ? t : false
+  } else {
+    return false;
+  }
 }
 
 module.exports = {
